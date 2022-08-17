@@ -19,6 +19,13 @@ class ContactSeeder extends Seeder
         //
         DB::table('contacts')->insert([
             [
+                'id' =>  0, 
+                'name' => '-', 
+                'mail' => '-', 
+                'phone' => '-', 
+                'created_at' => Carbon::now()
+            ],
+            [
                 'id' =>  1, 
                 'name' => 'Alberto Ortega', 
                 'mail' => 'ortegasanz@gmail.com', 

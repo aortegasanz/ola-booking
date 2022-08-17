@@ -1,4 +1,5 @@
     <div class="table-responsive-sm">
+        <br/>
         <h2 class="card-title">Listado de Reservas</h2>
         <table class="table">
             <thead class="thead-dark">
@@ -11,13 +12,14 @@
                     <th scope="col">No.Hab.</th>
                     <th scope="col">Pax</th>
                     <th scope="col">€</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
                 @isset($bookings)
                     @foreach ($bookings as $booking)
-                    <tr>
-                        <th scope="row"><a href="#">{{ $booking->reference }}</a></th>
+                    <tr>                        
+                        <th scope="row"><a href="{{ route('bookings.show', $booking->id)}}">{{ $booking->reference }}</a> </th>
                         <td>{{ Carbon\Carbon::parse($booking->start_date)->format('d/m/Y') }}</td>                            
                         <td>{{ Carbon\Carbon::parse($booking->end_date)->format('d/m/Y') }}</td>                            
                         <td>Alberto Ortega</td>
@@ -25,6 +27,7 @@
                         <td>{{ $booking->room_number }}</td>
                         <td>{{ $booking->pax }}</td>
                         <td>{{ $booking->booking_amount }}</td>
+                        <td>{{ $booking->status_booking->name }}</td>
                     </tr>
                     @endforeach
                 @endisset
